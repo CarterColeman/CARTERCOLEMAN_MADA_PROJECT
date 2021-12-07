@@ -965,8 +965,7 @@ lasso_pred_plot <- ggplot(lasso_residuals,
                           aes(x = biological_score, 
                               y = .pred)) + 
   geom_point() + 
-  labs(title = "Predictions vs Actual: LASSO", 
-       x = "Biological Score Outcome", 
+  labs(x = "Biological Score Outcome", 
        y = "Biological Score Prediction")
 lasso_pred_plot
 
@@ -984,8 +983,7 @@ lasso_residual_plot <- ggplot(lasso_residuals,
                               aes(y = .resid, 
                                   x = .pred)) + 
   geom_point() + 
-  labs(title = "Predictions vs Residuals: LASSO", 
-       x = "Biological Score Prediction", 
+  labs(x = "Biological Score Prediction", 
        y = "Residuals")
 plot(lasso_residual_plot) #view plot
 ```
@@ -1170,8 +1168,7 @@ lasso_pred_plot_EC <- ggplot(lasso_residuals_EC,
                           aes(x = e.coli.cfu, 
                               y = .pred)) + 
   geom_point() + 
-  labs(title = "Predictions vs Actual: LASSO", 
-       x = "E. coli cfu Outcome", 
+  labs(x = "E. coli cfu Outcome", 
        y = "E. coli cfu Prediction")
 lasso_pred_plot_EC
 

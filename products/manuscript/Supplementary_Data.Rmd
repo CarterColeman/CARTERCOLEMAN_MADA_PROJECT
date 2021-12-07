@@ -16,26 +16,6 @@ library(ggplot2)  # For plotting
 library(png)      # For grabbing the dimensions of png files
 ```
 
-_Supplementary Figure 1: Plots of biological score versus conductivity, E. coli cfu, nitrate concentration, and turbidity for the MIDO site._
-```{r, echo=FALSE, message=FALSE}
-bs_MIDO_location <- here::here("results", "MIDO_bs_lm.png")
-
-include_graphics(bs_MIDO_location)
-```
-
-_Supplementary Figure 2: Plots of biological score versus conductivity, E. coli cfu, nitrate concentration, and turbidity for the NORO site._
-```{r, echo=FALSE, message=FALSE}
-bs_NORO_location <- here::here("results", "NORO_bs_lm.png")
-
-include_graphics(bs_NORO_location)
-```
-
-_Supplementary Figure 3: Plots of biological score versus conductivity, E. coli cfu, nitrate concentration, and turbidity for the BICO site._
-```{r, echo=FALSE, message=FALSE}
-bs_BICO_location <- here::here("results", "BICO_bs_lm.png")
-
-include_graphics(bs_BICO_location)
-```
 
 _Supplementary Figure 4: Cook Distance plot for MIDO Biological Score data. Plots show no score >1, suggesting no outliers in the data._
 ```{r, echo=FALSE, message=FALSE}

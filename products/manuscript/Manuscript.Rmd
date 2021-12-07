@@ -7,12 +7,12 @@ site: bookdown::bookdown_site
 documentclass: article
 output:
   bookdown::word_document2:
-    reference_docx: ../style_template_final.docx 
+    reference_docx: ../style_template.docx 
     toc: false
     number_sections: true
   bookdown::html_document2: 
     toc: false
-bibliography: ../References (2).bib
+bibliography: ../MADA.bib
 csl: ../elsevier_style.csl
 ---
 
@@ -39,15 +39,19 @@ Results indicated that the only significant bivariate relationships that existed
 
 The Earth's surface contains a relative proportion of approximately 3% freshwater to 97% salt water. As such, that three percent is supposedly meant to sustain a growing global population of 9 billion people. In a world where water scarcity is more and more common due to increasingly warmer climate (@Winter2017), our freshwater reserves are also threatened by pollution by urbanization. Urbanization surrounding a freshwater body creates a watershed dominated by impervious surface in the form of concrete and asphalt (@Bouizrou2021). Studies have shown that there is a significant negative relationship between impervious surface coverage and water quality (@Birawat2021). This is most likely due to accumulation and concentration of run-off pollutants from an entire watershed into a single drainage basin (i.e. freshwater body)(@Klein1979; @Wolfram2021). Because the urban world continues to grow with population, it is likely that we will see a proportional decrease in water quality in our freshwater bodies as a result (@Wolfram2021). Therefore, a rapid and consistent monitoring system needs to be in place to effectively allocate resources to remediating body of water in the midst of being polluted. 
 
-Currently, stream health and water quality are typically measured by their physical characteristics (chemistry, surrounding land use area, channelization, etc.); Microbial (fecal indicator), and ecology (diversity of indicator macroinvertebrates) (@Clapcott2012; @Flinders2008; @Alvareda2020). Typically, these measurements include conductivity (measure of dissolved ions), dissolved oxygen, temperature, pH, nitrate and phosphorus concentration, turbidity (measure of suspended particulate matter in the water column), fecal indicator bacteria (measure of waste pollution), and benthic macroinvertebrate diversity indices (measure of impervious surface run-off on sensitive aquatic taxa) (@Clapcott2012; @Flinders2008; @Alvareda2020). While Biological Indicatior Score is used to measure the combination of stream chemical and physical properties (@Flinders2008), it is hard to evaluate whether urbanization affects watersheds and water quality uniformly (@Wu2020). Evaluating how uniform the impact of urbanization is on different watersheds would allow for a cookie-cutter monitoring and remediation method, which would allow implementation to be fairly easy for environmental managers. On the other hand, if the impact of urbanization on freshwater bodies is not monolithic, we could be spending a lot of time and effort on monitoring programs that are not effective. Currently, citizen science groups, like Adopt-a-Stream in Georgia, are collecting data on many watersheds throughout the world in an effort to consistently monitor water quality in a community. However, studies have shown conflicting results on what variables like conductivity, turbidity, e. coli cfu (fecal coliform indicator), nutrient (nitrogen and phosphorus) concentration, and biodiversity indicator score actually say about water quality (@Boulton1999). Therefore, I aim to answer how well are these parameters correlated with each other in the context of the Adopt-a-Stream method. Specifically, can you use one of the indicators mentioned (physical, microbial, and ecological) to describe the others to make a statement about overall stream health?
+Currently, stream health and water quality are typically measured by their physical characteristics (chemistry, surrounding land use area, channelization, etc.); Microbial (fecal indicator), and ecology (diversity of indicator macroinvertebrates) (@Clapcott2012; @Flinders2008; @Alvareda2020). Typically, these measurements include conductivity (measure of dissolved ions), dissolved oxygen, temperature, pH, nitrate and phosphorus concentration, turbidity (measure of suspended particulate matter in the water column), fecal indicator bacteria (measure of waste pollution), and benthic macroinvertebrate diversity indices (measure of impervious surface run-off on sensitive aquatic taxa) (@Clapcott2012; @Flinders2008; @Alvareda2020). While Biological Indicatior Score is used to measure the combination of stream chemical and physical properties (@Flinders2008), it is hard to evaluate whether urbanization affects watersheds and water quality uniformly (@Wu2020). Evaluating how uniform the impact of urbanization is on different watersheds would allow for a cookie-cutter monitoring and remediation method, which would allow implementation to be fairly easy for environmental managers. On the other hand, if the impact of urbanization on freshwater bodies is not monolithic, we could be spending a lot of time and effort on monitoring programs that are not effective. Currently, citizen science groups, like Adopt-a-Stream in Georgia, are collecting data on many watersheds throughout the world in an effort to consistently monitor water quality in a community. However, studies have shown conflicting results on what variables like conductivity, turbidity, e. coli cfu (fecal coliform indicator), nutrient (nitrogen and phosphorus) concentration, and biodiversity indicator score actually say about water quality (@Boulton1999). Therefore, I aim to answer how well are these parameters correlated with each other in the context of the Adopt-a-Stream method. 
 
-I would expect that because the all three are correlated with urbanization/anthropocentric impact, a negative impact in one indicator category will indicate a correlated negative impact to stream health in the other categories. The only caveat is that because level of noise in stream health data, significant correlations may be difficult to find.
+## Question and Hypothesis
+
+Based on the UOWN data used, this study asks if it is possible to use physical/chemical measures of stream health to predict microbial (E. coli cfu) and ecological (index score based on measurement of stream macroinvertebrate diversity)?
+
+I would expect that because the all three are correlated with urbanization/anthropocentric impact, a negative impact to stream physical/chemical measurements will indicate a correlated negative impact to stream health in microbial and ecological measurements. The only caveat is that because level of noise in stream health data, significant correlations may be difficult to find.
 
 </br>
 
 # Methods
 
-UOWN has provided a great deal of data dating back to 2003. First,I will need to wrangle missing data values that are a result of inconsistent sampling efforts. This will make the data easier to work with and narrow down a time frame for the data that is consistent and free of sampling bias. Next, I will analyze and compare trends in the change of chemical (conductivity, turbidity,	no3.mgL); ecological(Biological Score); and microbial indicator data (e.coli CFU). Generally speaking, increases in chemical properties like conductivity, turbidity,	no3.mgL and microbial indicator abundance (i.e. ecoli CFU) indicate decreased stream health. While a decrease in biological score indicates decrease in stream health. Next, since biological scores are used as a measure of broader ecological health, I will run t-tests on if the other factors significantly effect biological score. Finally, I will test the interaction of all three via multivariate analysis.
+UOWN has provided a great deal of data dating back to 2003. First, I will need to wrangle missing data values that are a result of inconsistent sampling efforts. This will make the data easier to work with and narrow down a time frame for the data that is consistent and free of sampling bias. Next, I will analyze and compare trends in the change of chemical (conductivity, turbidity,	no3.mgL); ecological (index score based on measurement of stream macroinvertebrate diversity); and microbial indicator data (e.coli CFU). In the context of this study, will will be measure ecological diversity based on the Adopt-A-Stream's method of describing stream health based on diversity of susceptible and tolerant taxa (@GAEPD2015). The idea is that the more urban impact to a stream, the lower the richness of macroinvertebrate taxa sensitive to urban pollution. Generally speaking, increases in chemical properties like conductivity (measure of total dissolved ions), turbidity (measure of suspended solids),	nitrate concentration (no3.mgL) and abundance of microbial indicator taxa of human waste impact (i.e. E. coli cfu) indicate decreased stream health. While a decrease in biological score indicates decrease in stream health. Next, since biological scores are used as a measure of broader ecological health, I will run t-tests on if the other factors significantly effect biological score. Finally, I will test the interaction of all three via multivariate analysis.
 
 </br>
 
@@ -97,11 +101,32 @@ Results from exploratory data analysis indicates that most interactions between 
 
 In addition to non-significant interactions, the relationships (slopes) between either biological score or E. coli cfu and stream physical and chemical properties varied inconsistently between sites. 
 
-Focusing on just biological score as the outcome variable biological score (supplementary figures 1-3), the interaction with conductivity was determined to be negative for the MIDO and NORO site. However, the BICO site had a positive interaction. Next, the regression plotting found a negative interaction with E. coli cfu for the MIDO and BICO sites. But, there was a positive interaction for the NORO site. For nitrate concentration, the interaction was negative for all sites. Finally, the interaction with turbidity was negative for the BICO site, while a positive interaction was found for the MIDO and NORO sites.
+Focusing on just biological score as the outcome variable biological score (figures 1-3 below), the interaction with conductivity was determined to be negative for the MIDO and NORO site. However, the BICO site had a positive interaction. Next, the regression plotting found a negative interaction with E. coli cfu for the MIDO and BICO sites. But, there was a positive interaction for the NORO site. For nitrate concentration, the interaction was negative for all sites. Finally, the interaction with turbidity was negative for the BICO site, while a positive interaction was found for the MIDO and NORO sites.
 
-Focusing on E. coli cfu as the outcome of interest (figures 1-3 below), the interaction with conductivity was negative for MIDO and NORO. However, the BICO site had a positive interaction. The interaction with nitrate concentration was negative for all three sites. Finally the interaction with turbidity was positive at all three sites.
+_Figure 1: Plots of biological score versus conductivity, E. coli cfu, nitrate concentration, and turbidity for the MIDO site._
+```{r, echo=FALSE, message=FALSE}
+bs_MIDO_location <- here::here("results", "MIDO_bs_lm.png")
 
-_Figure 1: Plots of E. coli cfu versus conductivity, nitrate concentration, and turbidity for the MIDO site._
+include_graphics(bs_MIDO_location)
+```
+
+_Figure 2: Plots of biological score versus conductivity, E. coli cfu, nitrate concentration, and turbidity for the NORO site._
+```{r, echo=FALSE, message=FALSE}
+bs_NORO_location <- here::here("results", "NORO_bs_lm.png")
+
+include_graphics(bs_NORO_location)
+```
+
+_Figure 3: Plots of biological score versus conductivity, E. coli cfu, nitrate concentration, and turbidity for the BICO site._
+```{r, echo=FALSE, message=FALSE}
+bs_BICO_location <- here::here("results", "BICO_bs_lm.png")
+
+include_graphics(bs_BICO_location)
+```
+
+Focusing on E. coli cfu as the outcome of interest (figures 4-6 below), the interaction with conductivity was negative for MIDO and NORO. However, the BICO site had a positive interaction. The interaction with nitrate concentration was negative for all three sites. Finally the interaction with turbidity was positive at all three sites.
+
+_Figure 4: Plots of E. coli cfu versus conductivity, nitrate concentration, and turbidity for the MIDO site._
 ```{r, echo=FALSE, message=FALSE}
 ecfu_MIDO_location <- here::here("results", "MIDO_ecfu_lm.png")
 
@@ -109,15 +134,14 @@ include_graphics(ecfu_MIDO_location)
 ```
 
 
-_Figure 2: Plots of E. coli cfu versus conductivity, nitrate concentration, and turbidity for the NORO site._
+_Figure 5: Plots of E. coli cfu versus conductivity, nitrate concentration, and turbidity for the NORO site._
 ```{r, echo=FALSE, message=FALSE}
 ecfu_NORO_location <- here::here("results", "NORO_ecfu_lm.png")
 
 include_graphics(ecfu_NORO_location)
 ```
 
-
-_Figure 3: Plots of E. coli cfu versus conductivity, nitrate concentration, and turbidity for the BICO site._
+_Figure 6: Plots of E. coli cfu versus conductivity, nitrate concentration, and turbidity for the BICO site._
 ```{r, echo=FALSE, message=FALSE}
 ecfu_BICO_location <- here::here("results", "BICO_ecfu_lm.png")
 
@@ -190,14 +214,14 @@ Best_LASSO_EC
 
 </br>
 
-_Figure 4: Scatter plot of LASSO model predicted Biological Score data as a function of actual Biological Score from the MIDO data set._
+_Figure 7: Scatter plot of LASSO model predicted Biological Score data as a function of actual Biological Score from the MIDO data set._
 ```{r, echo=FALSE, message=FALSE}
 lasso_prediction_plot_BS_location <- here::here("results", "lasso_prediction_plot_BS.png")
 
 include_graphics(lasso_prediction_plot_BS_location)
 ```
 
-_Figure 5: Scatter plot of LASSO model predicted E. coli cfu data as a function of actual E. coli cfu from the MIDO data set._
+_Figure 8: Scatter plot of LASSO model predicted E. coli cfu data as a function of actual E. coli cfu from the MIDO data set._
 ```{r, echo=FALSE, message=FALSE}
 lasso_prediction_plot_EC_location <- here::here("results", "lasso_prediction_plot_EC.png")
 
@@ -206,7 +230,7 @@ include_graphics(lasso_prediction_plot_EC_location)
 
 # Discussion
 
-Based on the inconsistent linear modeling exploratory analysis and LASSO modeling for best combination of predictors, the results indicate that combinations of the variables biological score, E. coli cfu, nitrate concentration, conductivity, and turbidity are not able to predict values for biological score or E. coli cfu. This indicates that one cannot predict either Biological Score or E. coli cfu from any combination of stream physical and chemical properties. This is seen by a lack of consistent significant correlations between each stream health predictor and either biological score or E. coli cfu as well as LASSO modeling to find the ideal combination of stream health variables to predict biological score or E. coli cfu. Given these results, it is likely that the data was biased due to the  inconsistent and opportunistic sampling efforts done by citizen science [find citation for lack of reliability for citizen science data]. When examining the data set, many values were observed to be missing, with a disproportionate amount of extent observations in what I suspect to be the more easily collected stream health variables. For example, significantly more NA observations were included in the biological score column relative to variables like turbidty and conductivity. This is because both turbidity and conductivity can be measured in situ with a meter in a matter of minutes, while biological score is calculated following collection and identification of macroinvertebrate families from samples [find reference for biological score assessment methodology]. Therefore, biological score is much harder to measure. Additionally, E. coli cfu is processed by culturing E. coli from samples and generally requires a trained scientist to do [find reference for E. coli cfu qunatification methods]. While confidence in values may be greater in this case, there is know a shortage of labor due to need for a specialized skill set to process and quantify E. coli cfu values.
+Based on the inconsistent linear modeling exploratory analysis and LASSO modeling for best combination of predictors, the results indicate that combinations of the variables biological score, E. coli cfu, nitrate concentration, conductivity, and turbidity are not able to predict values for biological score or E. coli cfu. This indicates that one cannot predict either Biological Score or E. coli cfu from any combination of stream physical and chemical properties. This is seen by a lack of consistent significant correlations between each stream health predictor and either biological score or E. coli cfu as well as LASSO modeling to find the ideal combination of stream health variables to predict biological score or E. coli cfu. Given these results, it is likely that the data was biased due to the  inconsistent and opportunistic sampling efforts done by citizen science (@Kosmala2016). When examining the data set, many values were observed to be missing, with a disproportionate amount of extent observations in what I suspect to be the more easily collected stream health variables. For example, significantly more NA observations were included in the biological score column relative to variables like turbidity and conductivity. This is because both turbidity and conductivity can be measured in situ with a meter in a matter of minutes, while biological score is calculated following collection and identification of macroinvertebrate families from samples (@GAEPD2015). Therefore, biological score is much harder to measure. Additionally, E. coli cfu is processed by culturing E. coli from samples and generally requires a trained scientist to perform such methods. While confidence in values may be greater in this case, there is now a shortage of labor due to need for a specialized skill set to process and quantify E. coli cfu values.
 
 ## Conclusions
 

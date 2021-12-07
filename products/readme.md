@@ -8,6 +8,6 @@ Folder located here inside contain all the products of my Stream Health Comparis
 
 4. The `References (2)` file contains information used for the references section of the `Manuscript`.
 
-5. The `style_template` and `style_template_final` files contains code to format the `Manuscript` .
+5. The `style_template` files contains code to format the `Manuscript` .
 
 
