@@ -93,7 +93,7 @@ At this point, the main take-aways from data analysis thus far is that correlati
 
 Following correlation analysis during exploration, focus was shifted to just the MIDO dataset. As you can tell, working with many variables in three different data sets can be quite cumbersome to read through. For ease of interpretation, the MIDO data set will serve as the data frame where I test how robust the linear fit models actually are for the data. MIDO is the only data set large enough that when we split the data set into a "test" and "train" data set, I actually have confidence in the resulting model fit analysis. For comparison, MIDO has an n = 88; NORO has an n = 35; and BICO has an n = 23. The only thing we are missing by dropping the other sites is assessing site-by-site comparison, which I am choosing not to focus on anyway.
 
-Finally, LASSO analyses were performed with either biological score or E. coli cfu as the outcome of choice. The LASSO model analyzed which combination of stream health descriptive variables are the best for predicting either biological score or E. coli cfu values for the MIDO site through time.
+Finally, LASSO analyses were performed with either biological score or E. coli cfu as the outcome of choice. The LASSO model analyzed which combination of stream health descriptive variables are the best for predicting either biological score or E. coli cfu values for the MIDO site through time. To test how well the LASSO models performed and how well they fit our data, Root Mean Squared Error (RMSE) was calculated for each model produced and for predicted values of MIDO stream health variables, using the LASSO models. Residuals between actual and predicted values were calculated to show how well the models could predict values. Finally, all RMSE values (actual and predicted data models) were compared to a null model for both biological score and E. coli cfu to evaluate model performance.
 
 # Results
 
@@ -148,7 +148,7 @@ ecfu_BICO_location <- here::here("results", "BICO_ecfu_lm.png")
 include_graphics(ecfu_BICO_location)
 ```
 
-The results indicated that only the relationship between E. Coli (cfu) and Conductivity were significant for both the train data (p = 1.374747e-05) and test data (p = 1.89214e-06). However, both models had high RMSE values, indicating that the models did not fit the data well and could not be used to predict E. coli (cfu) from conductivity, despite a significant relationship. To test how well the LASSO models performed and how well they fit our data, Root Mean Squared Error (RMSE) was calculated for each model produced and for predicted values of MIDO stream health variables, using the LASSO models. Residuals between actual and predicted values were calculated to show how well the models could predict values. Finally, all RMSE values (actual and predicted data models) were compared to a null model for both biological score and E. coli cfu to evaluate model performance.
+The results indicated that only the relationship between E. Coli (cfu) (Table 1 and 2) and Conductivity were significant for the train data set (p = 1.374747e-05). Large RMSE values indicate that the model did not fit the data well and could not be used to predict E. coli (cfu) from conductivity, despite a significant relationship.
 
 
 ```{r, echo=FALSE, message=FALSE}
@@ -171,7 +171,7 @@ MIDO_ECFU_Con_RMSE
 
 </br>
 
-The null linear models for biological score and E. coli cfu produced a RMSE = 6.63, with a standard deviation of 0.13 and RMSE = 0.52, with a standard deviation of 0.014, respectively. Results from the biological score LASSO machine learning model indicated that model 47 is the best performing models (RMSE = 6.50; STE = 0.16). However, based on comparative RMSE scores, model 47 does not really perform any better than the null model. This indicates that it is a bad fit to the MIDO data. Results from the E. coli cfu LASSO machine learning model indicated that model 41 is the best performing models (RMSE = 0.50; STE = 0.012). However, based on comparative RMSE scores, model 41 does not really perform any better than the null model. This indicates that it is a bad fit to the MIDO data.
+The null linear models for biological score and E. coli cfu (Table 3 and 5) produced a RMSE = 6.63, with a standard deviation of 0.13 and RMSE = 0.52, with a standard deviation of 0.014, respectively. Results from the biological score LASSO machine learning model (Table 4 and 6) indicated that model 47 is the best performing models (RMSE = 6.50; STE = 0.16). However, based on comparative RMSE scores, model 47 does not really perform any better than the null model. This indicates that it is a bad fit to the MIDO data. Results from the E. coli cfu LASSO machine learning model indicated that model 41 is the best performing models (RMSE = 0.50; STE = 0.012). However, based on comparative RMSE scores, model 41 does not really perform any better than the null model. This indicates that it is a bad fit to the MIDO data.
 
 ```{r, echo=FALSE, message=FALSE}
 BS_Null_Mod_Location <- here::here("results", "BS_Null_Mod_Location.RDS")
@@ -221,7 +221,10 @@ lasso_prediction_plot_BS_location <- here::here("results", "lasso_prediction_plo
 include_graphics(lasso_prediction_plot_BS_location)
 ```
 
+\newpage
+
 _Figure 8: Scatter plot of LASSO model predicted E. coli cfu data as a function of actual E. coli cfu from the MIDO data set._
+
 ```{r, echo=FALSE, message=FALSE}
 lasso_prediction_plot_EC_location <- here::here("results", "lasso_prediction_plot_EC.png")
 
