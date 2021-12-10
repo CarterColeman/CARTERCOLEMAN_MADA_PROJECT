@@ -63,7 +63,7 @@ Below is the cleaned data produced from our data processing. Data was processed 
 
 There is 3,075 rows and 12 columns. This is because data has been collected for ~20 years. Unfortunately, I am seeing a lot of NA's in the data. Because this is citizen science monitoring data, NA most likely means the data wasn't collected during that event and is a form of human error bias.
 
-4. Use NA assessment to see determine which variables to remove from assessment. This was done using the is_na function. Several of the columns have more than half of the data missing. This is pretty common for citizen science data, seeing as collection is opportunistic. As such, I decided to remove P04 and temperature, because they are missing a lot of data. Finally, I decided to remove all missing values and see the condition of the data knowing that there are now no missing values. I removed NA data using the na.omit() function.
+4. Use NA assessment to see determine which variables to remove from assessment. This was done using the is_na() function. Several of the columns have more than half of the data missing. This is pretty common for citizen science data, seeing as collection is opportunistic. As such, I decided to remove phosphate ([PO4]) and temperature, because they are missing a lot of data. Finally, I decided to remove all missing values and see the condition of the data knowing that there are now no missing values. I removed NA data using the na.omit() function.
 
 5. Change all numeric columns to be read as numeric instead of character. This sometimes happens when R tries to read in data from an external source, but is an easy fix with the as.numeric function. This is important because my analysis uses linear regression functions and they are coded to only deal with numeric values.
 
@@ -89,7 +89,7 @@ Results from exploratory data analysis indicates that most interactions between 
 
 In addition to non-significant interactions, the relationships (slopes) between either biological score or E. coli cfu and stream physical and chemical properties varied inconsistently between sites. 
 
-Focusing on just biological score as the outcome variable biological score (figures 1-3 below), the interaction with conductivity was determined to be negative for the MIDO and NORO site. However, the BICO site had a positive interaction. Next, the regression plotting found a negative interaction with E. coli cfu for the MIDO and BICO sites. But, there was a positive interaction for the NORO site. For nitrate concentration, the interaction was negative for all sites. Finally, the interaction with turbidity was negative for the BICO site, while a positive interaction was found for the MIDO and NORO sites.
+Focusing on just biological score as the outcome variable biological score (Figures 1-3 below), the interaction with conductivity was determined to be negative for the MIDO and NORO site. However, the BICO site had a positive interaction. Next, the regression plotting found a negative interaction with E. coli cfu for the MIDO and BICO sites. But, there was a positive interaction for the NORO site. For nitrate concentration, the interaction was negative for all sites. Finally, the interaction with turbidity was negative for the BICO site, while a positive interaction was found for the MIDO and NORO sites.
 
 _Figure 1: Plots of biological score versus conductivity, E. coli cfu, nitrate concentration, and turbidity for the MIDO site._
 ```{r, echo=FALSE, message=FALSE, out.height="50%"}
@@ -112,7 +112,7 @@ bs_BICO_location <- here::here("results", "BICO_bs_lm.png")
 include_graphics(bs_BICO_location)
 ```
 
-Focusing on E. coli cfu as the outcome of interest (figures 4-6 below), the interaction with conductivity was negative for MIDO and NORO. However, the BICO site had a positive interaction. The interaction with nitrate concentration was negative for all three sites. Finally the interaction with turbidity was positive at all three sites.
+Focusing on E. coli cfu as the outcome of interest (Figures 4-6 below), the interaction with conductivity was negative for MIDO and NORO. However, the BICO site had a positive interaction. The interaction with nitrate concentration was negative for all three sites. Finally the interaction with turbidity was positive at all three sites.
 
 _Figure 4: Plots of E. coli cfu versus conductivity, nitrate concentration, and turbidity for the MIDO site._
 ```{r, echo=FALSE, message=FALSE}
