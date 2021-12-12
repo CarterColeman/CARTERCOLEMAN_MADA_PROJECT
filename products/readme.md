@@ -6,7 +6,7 @@ Folder located here inside contain all the products of my Stream Health Comparis
 
 3. The `elsevier_style` file contains code to format the reference section.
 
-4. The `References (2)` file contains information used for the references section of the `Manuscript`.
+4. The `MADA.bib` file contains information used for the references section of the `Manuscript`.
 
 5. The `style_template` files contains code to format the `Manuscript` .
 
